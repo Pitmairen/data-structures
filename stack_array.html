@@ -1,0 +1,42 @@
+<!doctype html> 
+<title>Stack Dynamic Array</title>
+<link rel="stylesheet" href="style.css">
+
+<div class="container">
+
+    <div class="header clearfix">
+        <div class="menu"></div>
+        <h1>Stack using <a data-external="true" href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html">ArrayDeque</a>
+        </h1>
+    </div>
+
+    <div class="controls">
+<a href="#" id="push">Push</a>
+<a href="#" id="pop">Pop</a>
+    </div>
+
+    <div class="author">Created by: Per Myren (<a data-external="true" href="https://github.com/Pitmairen/data-structures/issues">Report bugs</a>)</div>
+<div id="scene"></div>
+</div>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/svg.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/common_lists.js"></script>
+<script src="js/arraydeque.js"></script>
+<script>
+var draw = SVG('scene');
+
+var list = new ArrayDeque(draw);
+
+$('#push').on('click', function(){
+    list.addFirst();
+    return false;
+});
+
+$('#pop').on('click', function(){
+    list.removeFirst();
+    return false;
+});
+</script>
+

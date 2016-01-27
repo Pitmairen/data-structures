@@ -1,0 +1,66 @@
+<!doctype html> 
+<title>ArrayList</title>
+<link rel="stylesheet" href="style.css">
+
+<div class="container">
+
+    <div class="header clearfix">
+        <div class="menu"></div>
+        <h1><a data-external="true" href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">ArrayList</a></h1>
+    </div>
+    <div class="controls">
+    <a href="#" id="add-item">Add Last</a>
+    <a href="#" id="add-first">Add First</a>
+    <a href="#" id="add-index">Add Index</a>
+    <a href="#" id="remove-item-end">Remove Last</a>
+    <a href="#" id="remove-first">Remove First</a>
+    <a href="#" id="remove-item-index">Remove Index</a>
+    <a href="#" id="get-index">Get Index</a>
+    </div>
+    <div class="author">Created by: Per Myren (<a data-external="true" href="https://github.com/Pitmairen/data-structures/issues">Report bugs</a>)</div>
+    <div id="scene"> </div>
+
+</div>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/svg.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/common_lists.js"></script>
+<script src="js/arraylist.js"></script>
+<script>
+
+var draw = SVG('scene');
+
+var list = new ArrayList(draw);
+
+$('#add-item').on('click', function(){
+    list.addItem();
+    return false;
+});
+$('#add-first').on('click', function(){
+    list.insertItem(0);
+    return false;
+});
+$('#add-index').on('click', function(){
+    list.insertItem(getRandomInt(0, list.size()));
+    return false;
+});
+$('#remove-first').on('click', function(){
+    list.removeIndex(0);
+    return false;
+});
+$('#remove-item-end').on('click', function(){
+    list.removeItemEnd();
+    return false;
+});
+$('#get-index').on('click', function(){
+    list.getIndex(getRandomInt(0, list.size()));
+    return false;
+});
+$('#remove-item-index').on('click', function(){
+    list.removeIndex(getRandomInt(0, list.size()));
+    return false;
+});
+
+</script>
+

@@ -1,0 +1,57 @@
+<!doctype html> 
+<title>Red Black Binary Search Tree</title>
+<link rel="stylesheet" href="style.css">
+<style>
+#scene{
+    height: 1500px;
+}
+</style>
+
+<div class="container">
+
+    <div class="header clearfix">
+        <div class="menu"></div>
+        <h1>
+            <a data-external="true" href="https://en.wikipedia.org/wiki/Left-leaning_red%E2%80%93black_tree">Left leaing Red Black Tree</a>
+            Similar to <a data-external="true" href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html">TreeMap</a>
+        </h1>
+    </div>
+
+<div class="controls">
+<a href="#" id="add">Add Single</a>
+<a href="#" id="random">Add Random</a>
+<a href="#" id="ordered">Add Ordered</a>
+</div>
+    <div class="author">Created by: Per Myren (<a data-external="true" href="https://github.com/Pitmairen/data-structures/issues">Report bugs</a>)</div>
+<div id="scene"></div>
+</div>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/svg.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/common_trees.js"></script>
+<script src="js/llrbbst.js"></script>
+<script>
+
+var draw = SVG('scene');
+
+var bst = new BST(draw);
+
+
+$("#ordered").on('click', function(){
+    insertOrdered(bst, 0);
+    return false;
+});
+
+$("#random").on('click', function(){
+    insertRandom(bst, 0);
+    return false;
+});
+
+$("#add").on('click', function(){
+    bst.insert(getRandomInt(1, 400));
+    return false;
+});
+
+</script>
+

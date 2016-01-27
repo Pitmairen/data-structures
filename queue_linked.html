@@ -1,0 +1,41 @@
+<!doctype html> 
+<title>Stack Linked List</title>
+<link rel="stylesheet" href="style.css">
+
+<div class="container">
+
+    <div class="header clearfix">
+        <div class="menu"></div>
+        <h1>Queue using <a data-external="true" href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html">LinkedList</a>
+        </h1>
+    </div>
+
+    <div class="controls">
+<a href="#" id="enqueue">Enqueue</a>
+<a href="#" id="dequeue">Dequeue</a>
+    </div>
+
+    <div class="author">Created by: Per Myren (<a data-external="true" href="https://github.com/Pitmairen/data-structures/issues">Report bugs</a>)</div>
+<div id="scene"></div>
+</div>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/svg.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/common_lists.js"></script>
+<script src="js/linked-list.js"></script>
+<script>
+var draw = SVG('scene');
+
+var list = new LinkedList(draw);
+
+$('#enqueue').on('click', function(){
+    list.addItem();
+    return false;
+});
+
+$('#dequeue').on('click', function(){
+    list.removeIndex(0);
+    return false;
+});
+</script>

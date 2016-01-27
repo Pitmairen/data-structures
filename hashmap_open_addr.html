@@ -1,0 +1,60 @@
+<!doctype html> 
+<title>HashMap Open Addressing</title>
+<link rel="stylesheet" href="style.css">
+<style>
+#scene{
+    height: 1000px;
+}
+</style>
+
+<div class="container">
+    <div class="header clearfix">
+        <div class="menu"></div>
+        <h1>Hash table similar to <a data-external="true" href="https://docs.oracle.com/javase/8/docs/api/java/util/IdentityHashMap.html">IdentityHashMap</a>
+        </h1>
+    </div>
+    <div class="controls">
+    <a href="#" id="put">Put</a>
+    <a href="#" id="get">Get</a>
+    </div>
+    <div class="author">Created by: Per Myren (<a data-external="true" href="https://github.com/Pitmairen/data-structures/issues">Report bugs</a>)</div>
+<div id="scene"></div>
+</div>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/svg.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/common_hashmap.js"></script>
+<script src="js/hashmap_open_addr.js"></script>
+
+
+<script>
+
+var draw = SVG("scene");
+
+var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+    'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 
+    'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+
+var map = new HashMap(draw, letters.slice(0));
+
+var put_letters = letters.slice(0);
+shuffleArray(put_letters);
+
+$('#put').click(function(){
+    if(put_letters.length != 0){
+        var l = put_letters.pop(0);
+        map.put(l);
+    }else
+        SingleAction.finished();
+    return false;
+});
+
+$('#get').click(function(){
+    var i = getRandomInt(0, letters.length);
+    map.get(letters[i]);
+    return false;
+});
+
+</script>
